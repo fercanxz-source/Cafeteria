@@ -7,8 +7,10 @@ def contact(request):
     contact_form = ContactForm()
 
     if request.method == "POST":
+        print("¡HOLA! EL FORMULARIO SÍ LLEGó A LA VISTA")
         contact_form = ContactForm(data=request.POST)
         if contact_form.is_valid():
+            print("¡Y PASÓ LA VALIDACIÓN!")
             name = request.POST.get('name', '')
             email = request.POST.get('email', '')
             content = request.POST.get('content', '')
