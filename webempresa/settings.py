@@ -126,11 +126,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
-MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
-    },
-}
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '70377ea12473e8'
+EMAIL_HOST_PASSWORD = 'cc3e543f566d8f'
+EMAIL_PORT = 2525

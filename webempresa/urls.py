@@ -9,6 +9,7 @@ urlpatterns = [
     path('blog/', include('blog.urls')), # <--- Rutas del blog
     path('services/', include('services.urls')),
     path('social/', include('social.urls')),
+    path('contact/', include('contact.urls')),
 ]
 
 if settings.DEBUG:

@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>Contacto | La Caffettiera</title>
+      <p style="color: red; font-weight: bold;">¿Llega el formulario?: {{ form }}</p>
 
     <!-- Bootstrap -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -75,27 +76,37 @@
                   <span class="section-heading-lower">Contacto</span>
                 </h2>
 
+                   {% if 'OK' in request.GET %}
+                    <div class="alert alert-success mb-3" role="alert">
+                        ¡Mensaje enviado correctamente! Revisa tu bandeja de Mailtrap.
+                    </div>
+                {% endif %}
+                {% if 'FAIL' in request.GET %}
+                    <div class="alert alert-danger mb-3" role="alert">
+                        Hubo un error al enviar el correo. Revisa la terminal.
+                    </div>
+                {% endif %}
                 <!-- Formulario de contacto -->
                 <form>
                     <div class="form-group">
                         <label>Nombre *</label>
                         <div class="input-group">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="name" placeholder="Escribe tu nombre" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Email *</label>
                         <div class="input-group">
-                            <input type="text" class="form-control">
+                            <input type="email" class="form-control" name="email" placeholder="Escribe tu email" required>
                         </div>
                         <ul class="errorlist">
-                            <li>El email no es correcto.</li>
+
                         </ul>
                     </div>
                     <div class="form-group">
                         <label>Mensaje *</label>
                         <div class="input-group">
-                            <textarea class="form-control"></textarea>
+                            <textarea class="form-control" name="content" rows="4" placeholder="Escribe tu mensaje" required></textarea>
                         </div>
                     </div>
                     <div class="text-center">
